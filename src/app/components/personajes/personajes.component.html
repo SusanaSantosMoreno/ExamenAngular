@@ -1,9 +1,11 @@
-<a [routerLink]="[ '/serie', idSerie ]">Volver</a>
-<div class="row" *ngIf="personajes.length > 0">
-    <div class="card col-4 mt-3 px-md-5" *ngFor="let personaje of personajes">
-        <img src={{personaje.imagen}} class="card-img-top pt-3" alt={{personaje.nombre}}>
-        <div class="card-body">
-            <h5 class="card-title">{{personaje.nombre}}</h5>
+<div *ngIf="personajes.length > 0">
+    <a [routerLink]="[ '/serie', idSerie ]">Volver</a>
+    <div class="row">
+        <div class="card col-md-3 mt-3 mr-2 px-md-5" *ngFor="let personaje of personajes">
+            <img src={{personaje.imagen}} class="card-img-top pt-3" alt={{personaje.nombre}} >
+            <div class="card-body">
+                <h5 class="card-title">{{personaje.nombre}}</h5>
+            </div>
         </div>
     </div>
 </div>

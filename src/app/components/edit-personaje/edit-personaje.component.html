@@ -1,12 +1,12 @@
 <div class="card p-3">
-    <div class="card-body">
+    <div class="card-body p-0">
         <form #updateForm='ngForm'>
             <div class="form-group">
                 <label for="selectSerie">Selecciona una serie:</label>
                 <select class="form-control" name="selectSerie" 
                     (change) = 'getSerie()'
                     [(ngModel)]="serieSeleccionada">
-                    <option [value]="serie.idSerie" *ngFor="let serie of series">{{serie.nombre}}</option>
+                    <option [value]="serie.idSerie"  [attr.selected]='i == 0 ? true : false' *ngFor="let serie of series; let i = index">{{serie.nombre}}</option>
                 </select>
             </div>
             <div class="form-group">
@@ -14,10 +14,10 @@
                 <select class="form-control" name="selectPersonaje" 
                     (change) = 'getPersonaje()'
                     [(ngModel)]="personajeSeleccionado">
-                    <option [value]="personaje.idPersonaje" *ngFor="let personaje of personajes">{{personaje.nombre}}</option>
+                    <option [value]="personaje.idPersonaje" [attr.selected]='i == 0 ? true : false' *ngFor="let personaje of personajes; let i = index">{{personaje.nombre}}</option>
                 </select>
             </div>
-            <button class="btn btn-outline-dark float-right" (click)="modificarPersonaje()">Guardar Cambios</button>
+            <button class="btn btn-outline-dark w-100" (click)="modificarPersonaje()">Guardar Cambios</button>
         </form>
     </div>
 </div>

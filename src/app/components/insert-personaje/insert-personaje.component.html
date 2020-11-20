@@ -1,5 +1,5 @@
 <div class="card p-3">
-    <div class="card-body">
+    <div class="card-body p-0">
         <form #insertarForm='ngForm'>
             <div class="form-group">
                 <label for="inputNombre">Nombre: </label>
@@ -12,10 +12,10 @@
             <div class="form-group">
                 <label for="selectSerie">Serie: </label>
                 <select class="form-control" name="selectSerie"  [(ngModel)]="serieSeleccionada">
-                    <option [value]="serie.idSerie" *ngFor="let serie of series">{{serie.nombre}}</option>
+                    <option [value]="serie.idSerie" [attr.selected]='i == 0 ? true : false' *ngFor="let serie of series; let i = index">{{serie.nombre}}</option>
                 </select>
             </div>
-            <button class="btn btn-outline-dark float-right" (click)="crearPersonaje()">Insertar</button>
+            <button class="btn btn-outline-dark w-100" (click)="crearPersonaje()">Insertar</button>
         </form>
     </div>
 </div>
