@@ -1,0 +1,21 @@
+<div class="card p-3">
+    <div class="card-body">
+        <form #insertarForm='ngForm'>
+            <div class="form-group">
+                <label for="inputNombre">Nombre: </label>
+                <input type="text" class="form-control" name="inputNombre" #inputNombre>
+            </div>
+            <div class="form-group">
+                <label for="inputImagen">Imagen: </label>
+                <input type="text" class="form-control" name="inputImagen" #inputImagen>
+            </div>
+            <div class="form-group">
+                <label for="selectSerie">Serie: </label>
+                <select class="form-control" name="selectSerie"  [(ngModel)]="serieSeleccionada">
+                    <option [value]="serie.idSerie" *ngFor="let serie of series">{{serie.nombre}}</option>
+                </select>
+            </div>
+            <button class="btn btn-outline-dark float-right" (click)="crearPersonaje()">Insertar</button>
+        </form>
+    </div>
+</div>

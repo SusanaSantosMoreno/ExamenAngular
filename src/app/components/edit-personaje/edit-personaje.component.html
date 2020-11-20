@@ -1,0 +1,38 @@
+<div class="card p-3">
+    <div class="card-body">
+        <form #updateForm='ngForm'>
+            <div class="form-group">
+                <label for="selectSerie">Selecciona una serie:</label>
+                <select class="form-control" name="selectSerie" 
+                    (change) = 'getSerie()'
+                    [(ngModel)]="serieSeleccionada">
+                    <option [value]="serie.idSerie" *ngFor="let serie of series">{{serie.nombre}}</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="selectPersonaje">Selecciona un personaje:</label>
+                <select class="form-control" name="selectPersonaje" 
+                    (change) = 'getPersonaje()'
+                    [(ngModel)]="personajeSeleccionado">
+                    <option [value]="personaje.idPersonaje" *ngFor="let personaje of personajes">{{personaje.nombre}}</option>
+                </select>
+            </div>
+            <button class="btn btn-outline-dark float-right" (click)="modificarPersonaje()">Guardar Cambios</button>
+        </form>
+    </div>
+</div>
+
+<div class='row mt-4'>
+    <div class='card col-6' *ngIf="serie != null">
+        <img src={{serie.imagen}} class='card-img-top' alt={{serie.nombre}} />
+        <div class='card-body'>
+            <h5 class='card-title'>{{serie.nombre}}</h5>
+        </div>
+    </div>
+    <div class='card col-6' *ngIf="personaje != null">
+        <img src={{personaje.imagen}} class='card-img-top' alt={{personaje.nombre}} />
+        <div class='card-body'>
+            <h5 class='card-title'>{{personaje.nombre}}</h5>
+        </div>
+    </div>
+</div>
